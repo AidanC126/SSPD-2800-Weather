@@ -5,31 +5,30 @@ export function CityInputs() {
   const { originCity, setOriginCity, currentCity, setCurrentCity } = useContext(WeatherContext);
 
   return (
-    <div>
-      <h2>City Inputs</h2>
-
+  <div class="city-inputs">
+    <div class="input-group">
       <label>
         Origin City:
         <input
+          class="city-input"
           type="text"
           value={originCity}
           onChange={(e) => setOriginCity(e.target.value)}
         />
       </label>
+    </div>
 
+    <div class="input-group">
       <label>
         Current City:
         <input
+          class="city-input"
           type="text"
           value={currentCity}
           onChange={(e) => setCurrentCity(e.target.value)}
         />
       </label>
-
-      <div style={{ marginTop: "1rem" }}>
-        <p><strong>Origin City:</strong> {originCity}</p>
-        <p><strong>Current City:</strong> {currentCity}</p>
-      </div>
     </div>
+  </div>
   );
 };

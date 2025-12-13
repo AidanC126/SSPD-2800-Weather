@@ -1,25 +1,51 @@
-import { useState } from 'react'
-import './App.css'
+import { useContext } from "react";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { WeatherContext } from "./components/WeatherContext";
+import WeatherProvider from "./components/WeatherProvider";
+import { CityInputs } from "./components/CityInputs";
+import WeatherCard from "./components/WeatherCard";
+
+/**
+ * AppContent
+ * - Consumes WeatherContext
+ * - Renders inputs and weather cards
+ */
+function AppContent() {
+  const { originCity, currentCity } = useContext(WeatherContext);
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="app-container">
+      <header className="app-header">
+        <h1>Weather Comparison</h1>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Compare the current weather between your origin city and your current
+          location.
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </header>
+
+      <main className="app-main">
+        <section className="city-inputs">
+          <CityInputs />
+        </section>
+
+        <section className="weather-grid">
+          <WeatherCard title="Origin City" cityName={originCity} />
+          <WeatherCard title="Current City" cityName={currentCity} />
+        </section>
+      </main>
+    </div>
+  );
 }
 
-export default App
+/**
+ * App
+ * - Wraps the entire application with WeatherProvider
+ */
+export default function App() {
+  return (
+    <WeatherProvider>
+      <AppContent />
+    </WeatherProvider>
+  );
+}

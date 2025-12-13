@@ -23,7 +23,7 @@ export default function WeatherCard({ cityName, title }) {
                 setError(null);
 
                 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q={cityName}&appid=${apiKey}&units=metric`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`);
 
                 if (!response.ok) {
                     throw new Error('City not found');

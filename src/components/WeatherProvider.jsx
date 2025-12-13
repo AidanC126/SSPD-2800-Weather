@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WeatherContext from "./WeatherContext";
+import { WeatherContext } from "./WeatherContext";
 
 const WeatherProvider = ({ children }) => {
   const [originCity, setOriginCity] = useState("London");

@@ -6,11 +6,7 @@ import WeatherProvider from "./components/WeatherProvider";
 import { CityInputs } from "./components/CityInputs";
 import WeatherCard from "./components/WeatherCard";
 
-/**
- * AppContent
- * - Consumes WeatherContext
- * - Renders inputs and weather cards
- */
+
 function AppContent() {
   const { originCity, currentCity } = useContext(WeatherContext);
 
@@ -38,10 +34,7 @@ function AppContent() {
   );
 }
 
-/**
- * App
- * - Wraps the entire application with WeatherProvider
- */
+
 export default function App() {
   return (
     <WeatherProvider>

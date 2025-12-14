@@ -6,7 +6,6 @@ import WeatherProvider from "./components/WeatherProvider";
 import { CityInputs } from "./components/CityInputs";
 import WeatherCard from "./components/WeatherCard";
 
-
 function AppContent() {
   const { originCity, currentCity } = useContext(WeatherContext);
 
@@ -21,19 +20,20 @@ function AppContent() {
       </header>
 
       <main className="app-main">
-        <section className="city-inputs">
+        <div className="content-grid">
           <CityInputs />
-        </section>
+        </div>
 
-        <section className="weather-grid">
-          <WeatherCard title="Origin City" cityName={originCity} />
-          <WeatherCard title="Current City" cityName={currentCity} />
-        </section>
+        <div className="content-grid">
+          <section className="weather-grid">
+            <WeatherCard title="Origin City" cityName={originCity} />
+            <WeatherCard title="Current City" cityName={currentCity} />
+          </section>
+        </div>
       </main>
     </div>
   );
 }
-
 
 export default function App() {
   return (

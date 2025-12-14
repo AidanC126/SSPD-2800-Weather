@@ -23,10 +23,6 @@ function AppContent() {
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
           </nav>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutPage />} />
-          </Routes>
         </div>
       </header>
 
@@ -49,7 +45,10 @@ function AppContent() {
 export default function App() {
   return (
     <WeatherProvider>
-      <AppContent />
+        <Routes>
+            <Route path="/" element={<AppContent />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
     </WeatherProvider>
   );
 }

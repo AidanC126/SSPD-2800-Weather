@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import "./App.css";
-
+import { Routes, Route, Link } from 'react-router-dom';
 import { WeatherContext } from "./components/WeatherContext";
 import WeatherProvider from "./components/WeatherProvider";
 import { CityInputs } from "./components/CityInputs";
 import WeatherCard from "./components/WeatherCard";
+import AboutPage from './pages/AboutPage';
 
 function AppContent() {
   const { originCity, currentCity } = useContext(WeatherContext);
@@ -17,6 +18,16 @@ function AppContent() {
           Compare the current weather between your origin city and your current
           location.
         </p>
+        <div>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </div>
       </header>
 
       <main className="app-main">
